@@ -1,0 +1,27 @@
+function sumCalibrationValue(input) {
+    let lines = input.split('\n');
+    let sum = 0;
+    
+    for (let line of lines) {
+        
+      let numStr = line.match(/\d/g).join('');
+      if (numStr.length >= 2) {
+        let calibrationValue = parseInt(numStr[0] + numStr[numStr.length - 1]);
+        sum += calibrationValue;
+      } else {
+        let calibrationValue = parseInt(numStr[0] + numStr[0]);
+        sum += calibrationValue;
+      }
+    }
+    
+    return sum;
+  }
+  
+  let input = `1abc2
+  pqr3stu8vwx
+  a1b2c3d4e5f
+  treb7uchet`;
+  
+  console.log(sumCalibrationValue(input));
+
+export default sumCalibrationValue;
